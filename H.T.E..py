@@ -90,7 +90,8 @@ def game_cycle():
     pygame.display.flip()
 
 
-game = True
+game = False
+losed = False
 
 pygame.init()
 screen = pygame.display.set_mode((0, 0))
@@ -119,6 +120,7 @@ another_spr.add(fire)
 
 u = 4
 score = 0
+fire.Fire()
 
 if __name__ == '__main__':
 
@@ -178,7 +180,9 @@ if __name__ == '__main__':
                     swap()
                     losed = True
                     with open('Score.txt', 'r+') as f:
-                        f.write(str(score))
+                        if score > int(*f):
+                            f.seek(0)
+                            f.write(str(score))
                     score = 0
 
             game_cycle()

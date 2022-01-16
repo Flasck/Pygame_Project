@@ -18,6 +18,7 @@ class Food(pygame.sprite.Sprite):
         self.side = random.randint(0, 1)
         self.rect.centerx = self.side_coord[self.side]
         self.rect.bottom = 0
+        self.angle = random.randint(-30, 30)
 
         self.x_move = 0
         self.y_move = 5
@@ -49,3 +50,4 @@ class Food(pygame.sprite.Sprite):
                 for e in all_sprites:
                     e.kill()
                 return True
+
